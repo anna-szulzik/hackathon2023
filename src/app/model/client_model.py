@@ -8,20 +8,18 @@ class Client(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)
     cnpj = db.Column(db.String)
     email = db.Column(db.String)
-    senha = db.Column(db.String)
+    password = db.Column(db.String)
+    anual_revenue = db.Column(db.Float)
+    phone = db.Column(db.Integer)
+    contact_name = db.Column(db.String)
 
-    CNPJ
-
-    EMAIL
-    EMPRESARIAL
-    SENHA
-    FATURAMENTO
-    TELEFONE(CONTATO)
-    NOME(CONTATO)
-
-    def __init__(self, description, increase):
-        self.description = description
-        self.increase = increase
+    def __init__(self, cnpj, email, password, anual_revenue, phone, contact_name):
+        self.cnpj = cnpj
+        self.email = email
+        self.password = password
+        self.anual_revenue = anual_revenue
+        self.phone = phone
+        self.contact_name = contact_name
 
 
 # Supplier Schema
@@ -32,4 +30,4 @@ class ClientSchema(ma.SQLAlchemyAutoSchema):
 
 
 # Init schema
-structure_schema = ClientSchema()
+client_schema = ClientSchema()
